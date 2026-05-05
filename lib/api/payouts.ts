@@ -1,6 +1,12 @@
 // ✅ AI wrote: function signatures and return types
 // 🔧 Developer must implement: request bodies, pagination params, error handling
-import type { Payout, PayoutRequest, PaginatedResponse } from "@/types";
+import type {
+  Payout,
+  PayoutRequest,
+  BatchPayoutRequest,
+  BatchPayout,
+  PaginatedResponse,
+} from "@/types";
 
 export async function getPayouts(
   page = 1,
@@ -22,5 +28,25 @@ export async function createPayout(_input: PayoutRequest): Promise<Payout> {
 
 export async function cancelPayout(id: string): Promise<Payout> {
   // TODO: PATCH /api/payouts/:id/cancel
+  throw new Error("Not implemented");
+}
+
+export async function createBatchPayout(
+  _input: BatchPayoutRequest
+): Promise<BatchPayout> {
+  // TODO: POST /api/payouts/batch — requires wallet signature
+  throw new Error("Not implemented");
+}
+
+export async function getBatchPayout(id: string): Promise<BatchPayout> {
+  // TODO: GET /api/payouts/batch/:id
+  throw new Error("Not implemented");
+}
+
+export async function getBatchPayouts(
+  page = 1,
+  pageSize = 20
+): Promise<PaginatedResponse<BatchPayout>> {
+  // TODO: GET /api/payouts/batch?page=&pageSize=
   throw new Error("Not implemented");
 }
